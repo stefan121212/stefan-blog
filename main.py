@@ -16,7 +16,7 @@ app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False,
-                    base_url=None)
+                   base_url=None)
 
 # ##CONNECT TO DB
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL",  "sqlite:///blog.db")
@@ -221,4 +221,5 @@ def delete_post(post_id):
 
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=5000)
